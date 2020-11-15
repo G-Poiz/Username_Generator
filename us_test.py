@@ -1,5 +1,10 @@
-# get user input
-num = ''
-while not num.isdigit():
-    num = input('Number of words to generate: ')
-num = int(num)
+def get_answer(prompt):
+    while True:
+        answer = input(prompt).strip().lower()
+        if answer in ('yes',  'y',  'accept' ):
+            return "You have Accepted!"
+            
+        elif  answer in ('no',  'n','decline'):
+           return "You have Declined!"
+            
+print(get_answer("This content includes sencitive content 'Accept' or 'Decline'?"))
