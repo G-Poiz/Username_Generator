@@ -1,6 +1,9 @@
 import random
 import string
-
+ 
+ ###################################################
+ # IMPORT THE LIST FROM THE LIST FOLDER
+ ################################################## 
 # get user input
 num = int(input("Number of words to generate: "))
 # read word lists
@@ -33,7 +36,8 @@ for i in range(num):
 
     # Write to file
 f = open("user_name.txt", "a")
-f.write(username +"\n")
+f.write("\n" + username)
+f.flush()
 f.close()
 
 # # open and read the file after the appending:
