@@ -42,7 +42,10 @@ def insert_own_password ():
     #print(f"Password:{password}")
 
     #When done save file to folder
-    save_path_function()
+    f = open("./Generated_File/Password_Gen.txt", "a")
+    f.write(password + "\n")
+    f.close()
+    #save_path_function()
 
 #password_list = []
 #password = " "    
@@ -63,31 +66,31 @@ def rand_password():
     for chars in password_list:
         password += chars
     #print(f"Password:{password}\n")
-    f = open("Password_Gen.txt", "a" )
-    f.write( password +"\n" )
+    f = open("./Generated_File/Password_Gen.txt", "a" )
+    f.write( "\n" + password )
     f.close()
     #When done save file to folder
-    #save_path_function()
-rand_password()
+    #save_name()
 
-#password = " "
 
-def save_path_function():
-    file_name =input("Do you want it to save in the last place as before? (Y/N)\n('Password_Gen1')\n").lower()
-    if file_name == "y":
-        save_Path = "C: \\Users\\ok\\Documents\\Codes\\Projects\\MyProjects\\Username_Generator\\Generated_File"
+# password = " "
 
-        f = open("Password_Gen.txt", "a" )
-        f.write( password +"\n" )
-        f.close()
+# def save_name():
+#     file_name =input("Do you want it to save in the last place as before? (Y/N)\n('Password_Gen1')\n").lower()
+#     if file_name == "y":
+#         save_Path = "C: \\Users\\ok\\Documents\\Codes\\Projects\\MyProjects\\Username_Generator\\Generated_File"
 
-    else:
-        save_Path = "C: \\Users\\ok\\Documents\\Codes\\Projects\\MyProjects\\Username_Generator\\Generated_File\\"
-        name = input ( "File Name:")
-        complete_Name = name + ".txt"
-        complete_Name = os.path.join(save_Path , name + ".txt")
-        f = open( complete_Name , "w")
-        #toFile = input("Write what you want into the field")
-        #f.write(toFile)
-        f.close()        
+#         f = open("Password_Gen.txt", "a" )
+#         f.write( password +"\n" )
+#         f.close()
+
+#     else:
+#         save_Path = "C: \\Users\\ok\\Documents\\Codes\\Projects\\MyProjects\\Username_Generator\\Generated_File\\"
+#         name = input ( "File Name:")
+#         complete_Name = name + ".txt"
+#         complete_Name = os.path.join(save_Path , name + ".txt")
+#         f = open( complete_Name , "w")
+#         #toFile = input("Write what you want into the field")
+#         #f.write(toFile)
+#         f.close()        
 

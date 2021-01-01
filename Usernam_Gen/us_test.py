@@ -1,23 +1,45 @@
+import random
+import string
 
+###################################################
+# IMPORT THE LIST FROM THE LIST FOLDER
+##################################################
+# get user input
+num = int(input("Number of words to generate: "))
+# read word lists
+with open('./List/nouns.txt', 'r') as infile:
+    nouns = infile.read().strip(' \n').split('\n')
+with open('./List/adjec_tives.txt', 'r') as infile:
+    adjectives = infile.read().strip(' \n').split('\n')
+#read censor list
+with open('./List/black_list.txt', 'r') as inline:
+    censored = inline.read().strip(' \n').split('\n')
+# generate usernames
+for i in range(num):
 
-# def get_answer(prompt):
-#     while True:
-#         answer = input(prompt).strip().lower()
-#         if answer in ('yes',  'y',  'accept' ):
-#             return "You have Accepted!"
-            
-#         elif  answer in ('no',  'n','decline'):
-#            return "You have Declined!"
-            
-# print(get_answer("This content includes sencitive content 'Accept' or 'Decline'?"))
+    # construct username
+    word1 = random.choice(adjectives)
+    word2 = random.choice(nouns)
 
-# import msvcrt as m
-# # username_function()
-# print("What would you like to Generate today?" +
-#       input("Press 'ENTER' to continue..."))
-# # q1 = input("What would you like to Generate today?(Press 'ENTER' to continue)")
+    #check if word2 is censored
+    if word2 in censored:
+        i -= 1
+        continue
+    #else make and print the username
+    #captilaize first letter
+    word1 = word1.title()
+    word2 = word2.title()
+    username = '{}{}{}'.format(word1, word2, random.randint(1, 99))
 
+    # success
+    print(username)
 
-# def wait():
-#     m.getch()
+    # Write to file
+f = open("user_name.txt", "a")
+f.write("\n" + username)
+f.flush()
+f.close()
 
+# # open and read the file after the appending:
+# f = open("user_name.txt", "r")
+# print(f.read())
